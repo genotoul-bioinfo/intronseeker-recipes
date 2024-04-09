@@ -1,0 +1,40 @@
+{% set name = "perl-getopt-euclid" %}
+{% set version = "0.4.6" %}
+{% set sha256 = "65713094978ae7b7b8e8842b67d877fbe02c57fba6606757f5a569736ec385e4" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url:  https://cpan.metacpan.org/authors/id/B/BI/BIGPRESH/Getopt-Euclid-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+  patches:
+    - fix_version.patch
+
+build:
+  skip: True # [not linux]
+  number: 0
+
+requirements:
+  build:
+    - make
+  host:
+    - perl {{ perl }}
+  run:
+    - perl {{ perl }}
+
+test:
+  imports:
+    - Getopt::Euclid
+
+about:
+  home: https://metacpan.org/pod/Getopt::Euclid
+  license: Artistic-1.0-Perl OR GPL-1.0-or-later
+  #license: GPL-1.0-or-later
+  license_file: LICENSE
+  summary: 'Executable Uniform Command-Line Interface Descriptions'
+
+extra:
+  recipe-maintainers:
+    - Philippe Bordron
