@@ -1,6 +1,8 @@
 #! /bin/bash
 
 CONDA_BUILD_CMD="conda build --no-anaconda-upload"
+# Speedup version with boa (conda install -n base boa)
+#CONDA_BUILD_CMD="conda mambabuild --no-anaconda-upload"
 
 echo -e "### Building Getopt::Euclid... \n"
 $CONDA_BUILD_CMD perl-getopt-euclid
@@ -24,7 +26,6 @@ else
     exit $code
 fi
 
-
 echo -e "### Building Math::Random::MT... \n"
 $CONDA_BUILD_CMD perl-math-random-mt
 
@@ -44,5 +45,16 @@ if [ $code = 0 ]; then
     echo "SUCCESS : Building BioGrinder DONE."
 else
     echo "FAIL : Building BioGrinder FAILED."
+    exit $code
+fi
+
+echo -e "### Building IntronSeeker... \n"
+$CONDA_BUILD_CMD intronseeker
+
+code=$?
+if [ $code = 0 ]; then
+    echo "SUCCESS : Building IntronSeeker DONE."
+else
+    echo "FAIL : Building IntronSeeker FAILED."
     exit $code
 fi

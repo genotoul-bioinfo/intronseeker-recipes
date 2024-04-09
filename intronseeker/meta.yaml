@@ -1,0 +1,59 @@
+{% set name = "intronseeker" %}
+{% set version="0" %}
+#{% set hash="" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/Bios4Biol/intronSeeker.git
+#  sha256: {{ hash }}
+
+build:
+  skip: True # [not linux]
+  number: 0
+
+requirements:
+  run:
+    - perl {{ perl }}
+    - python >=3.6.9
+    - bcftools >=1.9
+    - biogrinder ==0.5.4
+    - biopython >=1.74
+    - diamond ==0.9.24
+    - emboss >=6.6.0
+    - gffread ==0.11.4
+    - gtfparse >=1.2.0
+    - hisat2 ==2.1.0
+    - numpy >=1.16.4
+    - pandas >=0.25.0
+    - perl-test-more >=1.001002
+    - perl-test-warn >=0.36
+    - perl-bioperl-core >=1.007002
+    - perl-getopt-long >=2.50
+    - perl-list-moreutils >=0.428
+    - perl-math-random >=0.72
+    - plotly >=4.0.0
+    - pysam >=0.15.3
+    - python >=3.6.9
+    - samtools ==1.9
+    - scipy >=1.4.1
+    - star ==2.7.1a
+    - transdecoder ==5.5.0
+#   - gcc_linux-64 ==9.3.0
+#   - libgcc-ng ==9.3.0
+
+test:
+  commands:
+    - intronSeeker checkInstall
+
+about:
+  home: https://github.com/Bios4Biol/intronSeeker
+  license: GPL-3.0-only
+  license_file: LICENSE
+  summary: RNA-Seq reads quite often contain non-spliced introns. These introns originating from non mature mRNAs can break the translated protein open reading frame. In order to get the correct protein sequence introns have to be removed, Retained introns will be present in only some sequences nevertheless they can therefore be present in the corresponding assembled contigs.
+
+extra:
+  recipe-maintainers:
+    - Philippe Bordron
