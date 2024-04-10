@@ -16,7 +16,7 @@ build:
 
 requirements:
   run:
-    - perl {{ perl }}
+    - perl
     - python >=3.6.9
     - bcftools >=1.9
     - biogrinder ==0.5.4
