@@ -37,14 +37,14 @@ else
     exit $code
 fi
 
-echo -e "### Building BioGrinder... \n"
-$CONDA_BUILD_CMD biogrinder
+echo -e "### Building Grinder... \n"
+$CONDA_BUILD_CMD grinder
 
 code=$?
 if [ $code = 0 ]; then
-    echo "SUCCESS : Building BioGrinder DONE."
+    echo "SUCCESS : Building Grinder DONE."
 else
-    echo "FAIL : Building BioGrinder FAILED."
+    echo "FAIL : Building Grinder FAILED."
     exit $code
 fi
 

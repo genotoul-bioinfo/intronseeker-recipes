@@ -1,4 +1,4 @@
-{% set name = "biogrinder" %}
+{% set name = "grinder" %}
 {% set version="0.5.4" %}
 {% set hash="c34edcae59d1a461d354bae5e3798e98b42f6a31768585e598fe6bfa305c8fe4" %}
 
@@ -42,4 +42,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - Philippe Bordron
+    - pbordron

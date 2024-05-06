@@ -19,12 +19,12 @@ requirements:
     - perl
     - python >=3.6.9
     - bcftools >=1.9
-    - biogrinder ==0.5.4
     - biopython >=1.74
     - diamond ==0.9.24
     - emboss >=6.6.0
     - gffread ==0.11.4
     - gtfparse >=1.2.0
+    - grinder ==0.5.4
     - hisat2 ==2.1.0
     - numpy >=1.16.4
     - pandas >=0.25.0
