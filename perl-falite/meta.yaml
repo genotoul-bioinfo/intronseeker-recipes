@@ -1,0 +1,35 @@
+{% set name = "perl-falite" %}
+{% set version="abbf6f6" %}
+{% set hash="318551c27dc38ca854ffc1691ec05e9ed810b9735d7f80a5049a14d88183c3c0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+build:
+  noarch: generic
+  number: 0
+  skip: True # [not linux]
+
+#source:
+#  url: https://raw.githubusercontent.com/ucdavis-bioinformatics/assemblathon2-analysis/{{ version }}/FAlite.pm
+#  sha256: {{ hash }}
+
+requirements:
+  build:
+    - perl {{ perl }}
+  run:
+    - perl {{ perl }}
+
+test:
+  import:
+    - FAlite
+
+about:
+  home: https://github.com/ucdavis-bioinformatics/assemblathon2-analysis
+  license: CC-BY-NC-3.0
+  summary: FAlite is a package for parsing FASTA files and databases.
+
+extra:
+  recipe-maintainers:
+    - pbordron

@@ -1,0 +1,32 @@
+--- assemblathon_stats.pl.1	2024-05-13 15:05:28.264140401 +0200
++++ assemblathon_stats.pl	2024-05-13 13:47:23.612907185 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ #
+ # assemblathon_stats.pl
+ #
+@@ -12,10 +12,15 @@
+ 
+ use strict;
+ use warnings;
+-use FAlite;
+ use Getopt::Long;
+ use List::Util qw(sum max min);
+ 
++use File::Basename;
++use File::Spec;
++use lib File::Spec->catdir(
++            File::Basename::dirname(File::Spec->rel2abs($0)));
++use FAlite;
++
+ ###############################################
+ # 
+ #  C o m m a n d   l i n e   o p t i o n s
+@@ -519,4 +524,4 @@
+ 	
+ 	
+ 	close($out);
+-}
+\ Pas de fin de ligne à la fin du fichier
++}

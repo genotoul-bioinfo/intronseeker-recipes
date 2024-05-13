@@ -1,0 +1,42 @@
+{% set name = "assemblathon_stats" %}
+{% set version="160b94c" %}
+{% set hash="8df3e3508fa38a1ba7219aa0ceee5d8a950f40f07a6b12526e3b5797d6864e0f" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+build:
+  noarch: generic
+  number: 0
+  skip: True # [not linux]
+  script:
+    - mkdir "{{ PREFIX }}/bin/"
+    - cp "{{ RECIPE_DIR }}"/assemblathon_stats.pl "{{ PREFIX }}/bin/"
+#    - cp assemblathon_stats.pl "{{ PREFIX }}/bin/"
+
+#source:
+#  url: https://github.com/KorfLab/Assemblathon/raw/{{ version }}/assemblathon_stats.pl
+#  sha256: {{ hash }}
+#  patches:
+#    - fix_imports.patch
+
+requirements:
+  run:
+    - perl
+    - perl-falite
+    - perl-getopt-long
+    - perl-list-util
+
+test:
+  commands:
+    assemblathon_stats.pl "{{ RECIPE_DIR }}"/test.fasta
+
+about:
+  home: https://github.com/KorfLab/Assemblathon/tree/master
+  license: CC-BY-NC-3.0
+  summary: A script to calculate a basic set of metrics from a genome assembly.
+
+extra:
+  recipe-maintainers:
+    - pbordron
